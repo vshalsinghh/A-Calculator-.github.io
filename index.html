@@ -1,1 +1,135 @@
+<html lang="en">
+<head>
+	<meta charset="utf-8">
+	<title>Calculator</title>
+<style>
+.nb{
+	background-color: #e0e1e5;
+	color:#000000;
+	height:45px;
+	width:45px;
+	text-align: center;
+	margin:10px;
+	border:1px solid black;
+	font-weight: bold;
+	box-shadow:inset 2px 2px 5px #ffffff,inset -2px -2px 5px #444444,1px 1px 5px #000000;
+}
+.hb{
+	background-color: #e0e1e5;
+	color:#000000;
+	height:45px;
+	width:110px;
+	text-align: center;
+	margin:10px;
+	border:1px solid black;
+	font-weight: bold;
+	box-shadow:inset 2px 2px 5px #ffffff,inset -2px -2px 5px #444444,1px 1px 5px #000000;
+}
+.vb{
+	background-color: #e0e1e5;
+	color:#000000;
+	height:110px;
+	width:45px;
+	text-align: center;
+	margin:10px;
+	position:absolute;
+	border:1px solid black;
+	font-weight: bold;
+	box-shadow:inset 2px 2px 5px #ffffff,inset -2px -2px 5px #444444,1px 1px 5px #000000;
+}
+.container{
+	border:1px solid black;
+	width:300px;
+	height:400px;
+left:50%;
+	top:50%;
+	margin-left:-150px;
+	margin-top:-200px;
+}
+input{
+	width:200px;
+	height:40px;
+	margin:10px 50px 10px 50px;
+	font-family:monospace;
+	font-size:20px;
+	border:1px solid black;
+	text-align:center;
+	background-color: #1b1b1c;
+	color:#e0e1e5;
+	
+}
+.buttons{
+	margin:0px 45px 0px 45px;
+}
+.container{
+	background-color:#dbdcdd;
+	position:absolute;
+	border-radius:5px;
+	box-shadow:inset -5px -5px 10px #444444, inset 5px 5px 10px #ffffff,5px 5px 10px #000000;
+}
+h1{
+	text-align:center;
+	margin-top:30px;
+	font-family: monospace;
+	font-size:50px;
+	text-shadow:  2px 2px 10px #898a8c;
+	color:#111111;
+}
+body{
+	background: #e8e8e8 no-repeat center center fixed;
+	background-size: cover;
+}
+</style>
+<script>
+	function disp(inp){
+var pos1;
+		document.getElementById('box').value+=inp;
+		var val=document.getElementById('box').value;
+		if(inp== '+'){
+			 pos1=val.lastIndexOf("+");
+			console.log(pos1);
+		}
+		if(inp== '='){
+			 pos1=val.lastIndexOf("+");
+			var posf=val.lastIndexOf("=");
+			console.log(posf);
+			console.log(pos1);
+			x= val.slice(0,pos1);
+			y= val.slice(pos1+1,posf);
+			console.log(x);
+			console.log(y);
+			var z= +x + +y;
+			console.log("result"+ z);
+			document.getElementById('box').value=z;
+		}
+		if (inp== 'clr'){
+			document.getElementById('box').value="";
+		}
+	}
+	</script>
+</head>
+<body>
+	<h1>The Adder</h1>
+	<div class="container">
 
+	<input type="text" value="" id="box">
+	<div class="buttons">
+	<button class="nb" onclick="disp(1)">1</button>
+	<button class="nb" onclick="disp(2)">2</button>
+	<button class="nb" onclick="disp(3)">3</button>
+	<button class="nb" onclick="disp(4)">4</button>
+	<button class="nb" onclick="disp(5)">5</button>
+	<button class="nb" onclick="disp(6)">6</button>
+	<button class="nb" onclick="disp(7)">7</button>
+	<button class="nb" onclick="disp(8)">8</button>
+	<button class="nb" onclick="disp(9)">9</button>
+	<button class="nb" onclick="disp(0)">0</button>
+	<button class="nb" onclick="disp(  '+' )">+</button>
+	<button class="vb" onclick="disp(  '=' )">=</button>
+	<button class="hb" onclick="disp(  'clr' )">CLR</button>
+</div>
+
+	</div>
+
+	</body>
+	</html>
